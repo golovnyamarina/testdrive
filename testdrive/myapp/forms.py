@@ -7,6 +7,7 @@ class UserForm(forms.Form):
     phone = forms.IntegerField(label='Телефон')
     email = forms.EmailField(label='Почта')
     car = forms.ChoiceField(label='Марка машины',choices=CARS)
+    time = forms.DateTimeField(label='Дата и время', widget=forms.DateTimeInput(attrs={'type': 'datetime-local'}))
     comment = forms.CharField(label='Комментарий', widget=forms.Textarea)
 
 
