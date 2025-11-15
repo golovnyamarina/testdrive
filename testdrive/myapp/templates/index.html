@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+{% block title %}Главная{% endblock title %}
+{% block content %}
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <main>
+        <div class="container">
+            <div class="records">
+                <h2>Активные записи</h2>
+                {% for user in users %}
+                <div class="card">
+                    <div class="card-left">
+                        <p> Клиент: <span>{{ user.name }}</span></p>
+                        <p> Email: <span>{{ user.email }}</span></p>
+                </div>
+                <div class="card-right">
+                        <p> Телефон: <span>{{ user.phone }}</span></p>
+                        <p> Автомобиль: <span>{{ user.car }}</span></p>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </main>
+
+</body>
+
+</html>
+{% endblock content %}
