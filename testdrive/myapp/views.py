@@ -5,13 +5,16 @@ from django.http import HttpResponse
 users = [
     {'name': 'Golovnya',
      'phone': '8(983)324-33-33',
-     'email': 'marina@mail.ru', 'car': 'BMW'},
+     'email': 'marina@mail.ru', 'car': 'BMW',
+     'time': '23.03.2007 12:55'},
     {'name': 'Skripicyna',
      'phone': '8(983)324-03-33',
-     'email': 'alena@mail.ru', 'car': 'BMW2'},
+     'email': 'alena@mail.ru', 'car': 'BMW2',
+     'time': '04.06.2007 12:44'},
     {'name': 'Klyap',
      'phone': '8(983)324-33-73',
-     'email': 'vladik@mail.ru', 'car': 'BMW3'}
+     'email': 'vladik@mail.ru', 'car': 'BMW3',
+     'time': '21.09.2007 3:55'}
 ]
 
 
@@ -31,12 +34,14 @@ def record(request):
             phone = userform.cleaned_data['phone']
             email = userform.cleaned_data['email']
             car = int(userform.cleaned_data['car'])
+            time = userform.cleaned_data['time']
             comment = userform.cleaned_data['comment']
             car = list(filter(lambda elem: elem[0] == car, CARS))[0][1]
             users.append({'name':name,
                           'phone':phone,
                           'email':email,
-                          'car':car})
+                          'car':car,
+                          'time':time})
         else:
             return HttpResponse('Invalid data')
 
